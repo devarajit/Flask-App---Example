@@ -1,0 +1,80 @@
+{% extends "base.html" %} {% block content %}
+<div class="container">
+
+    
+
+    <div class="row">
+        <div class="col-md-3" style="align-items: center;">
+        <form id="form" class="form-horizontal">
+            <div class="form-group">
+                <div class="col-sm-3">
+                    <label for="selectFile" class="upload-label">
+                        Choose a Image(*.dcm)...
+                    </label>
+                    <input type="file" name="file" id="selectFile" accept=".dcm">
+                </div>
+            </div>
+        </form>
+        </div>
+    
+        
+        <div class="col-md-7" style="align-content: center;">
+            <div class="image-section" >
+                <div style="width: 256px;height:256px;position:relative;color: white;display:inline-block;border-style:solid;border-color:black;"
+                    oncontextmenu="return false"
+                    class='disable-selection noIbar'
+                    unselectable='on'
+                    onselectstart='return false;'
+                    onmousedown='return false;'>
+                    <div id="dicomImage" style="width:256px;height:256px;top:0px;left:0px; position:absolute;">
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+            <div class="col-md-2" style="align-content: center;">
+                <button type="button" class="btn btn-primary btn-lg " id="btn-predict">Predict!</button>
+            </div>
+    </div>
+    
+            <div class="loader" style="display:none;"></div>
+        
+        <div class="row">
+        <br>
+        <br>
+        </div>
+
+        <div class="row" id="resultrow" style="display:none;">
+            <div class="col-md-4" > 
+                <div style="width:256px;height:256px;position:relative;color: white;display:inline-block;border-style:solid;border-color:black;">
+                    <span>Model-1</span>  
+                        <img src="#" alt="Image is Here" style="width:256px;height:v;top:0px;left:0px; position:absolute;display:none;" id="userImage1"></img>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div style="width:256px;height:256px;position:relative;color: white;display:inline-block;border-style:solid;border-color:black;">
+                <span>Model-2</span>  
+                <img src="#" alt="Image is Here" style="width:256px;height:256px;top:0px;left:0px; position:absolute;display:none;" id="userImage2"></img>
+                </div>
+            </div> 
+            <div class="col-md-4" >
+                <div style="width:256px;height:256px;position:relative;color: white;display:inline-block;border-style:solid;border-color:black;">
+                
+                <img src="#" alt="Image is Here" style="width:256px;height:256px;top:0px;left:0px; position:absolute;display:none;" id="userImage3"></img>
+            </div>
+               
+        </div>
+        
+  
+        </div>
+<div class="row" id="titlerow" style="display:none;">
+    <div class="col-md-4" style="align-items: center;font-weight: bold;text-align: center;"> VGGnet
+    </div>
+    <div class="col-md-4" style="align-items: center;font-weight: bold;text-align: center;"> Mask RCNN
+        </div>
+        <div class="col-md-4" style="align-items: center;font-weight: bold;text-align: center;"> MobileNet
+        </div>
+
+</div>
+</div>
+{% endblock %}
